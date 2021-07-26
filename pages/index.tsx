@@ -46,6 +46,8 @@ export default function Home() {
     setMsg("Ocurrió un error al obtener su ubicación, mostrandole las sucursales disponibles");
   }
 
+  if(loadError) { console.log(loadError); }
+
   return (
     <div className={styles.container}>
       <Head>
