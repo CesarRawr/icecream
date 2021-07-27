@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
+import RedirectService from '../services/redirect';
 import { useLoadScript, DistanceMatrixService } from '@react-google-maps/api';
 import styles from '../styles/Home.module.css';
 
@@ -37,6 +38,7 @@ export default function Home() {
       lat: position.coords.latitude,
       lng: position.coords.longitude,
     });
+
     setPermission(true);
   }
   
@@ -45,8 +47,6 @@ export default function Home() {
     console.log(err);
     setMsg("Ocurrió un error al obtener su ubicación, mostrandole las sucursales disponibles");
   }
-
-  if(loadError) { console.log(loadError); }
 
   return (
     <div className={styles.container}>
@@ -65,7 +65,7 @@ export default function Home() {
             options={{
               destinations: [coords],
               origins: [
-                { lat: 19.548700194914215, lng: -96.9315025473798 },
+                { lat: 19.5485043190066, lng: -96.93145158220881 },
                 { lat: 19.508979105975133, lng: -96.90683500320357 },
                 { lat: 19.55817402214415, lng: -96.91246640498656 }
               ],
@@ -73,6 +73,7 @@ export default function Home() {
             }}
             callback={(res) => {
               console.log("RESPONSE", res);
+              RedirectService.redirect(res.rows);
             }}
           />
         )
@@ -87,6 +88,7 @@ interface Coords {
 }
 
 /* Key AIzaSyAo-HC19aPSYGm0mt826eoCliQkfNAueCo*/
+/*                    19.5485043190066, -96.93145158220881*/
 /* Plaza museo coords 19.548700194914215, -96.9315025473798*/
 /* Martires de chicago coords 19.508979105975133, -96.90683500320357 */
 /* José Ruiz coords           19.55817402214415,  -96.91246640498656 */
