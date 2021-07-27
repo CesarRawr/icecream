@@ -73,7 +73,7 @@ export default function Home() {
             }}
             callback={(res) => {
               console.log("RESPONSE", res);
-              RedirectService.redirect(res.rows);
+              RedirectService.redirect(res.rows, res.originAddresses);
             }}
           />
         )
