@@ -1,3 +1,9 @@
+const links = [
+	'https://cutt.ly/BerdenzsPizzaPlazaMuseo',
+	'https://cutt.ly/BerdenzsPizzaMartiresDeChicago',
+	'https://cutt.ly/BerdenzsPizzaRafaelLucio'
+];
+
 const RedirectService = {
 	redirect: (rows: any[], originAddresses: string[]) => {
 		let nearest: number = 0;
@@ -10,6 +16,7 @@ const RedirectService = {
 
 		console.log(originAddresses[nearest]);
 		alert(`La sucursal mas cercana es ${originAddresses[nearest]}`);
+		location.replace(links[nearest]);
 	},
 };
 
