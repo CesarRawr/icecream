@@ -1,14 +1,16 @@
-import { useEffect, useState } from 'react';
 import Head from 'next/head';
+import { useEffect, useState } from 'react';
 import RedirectService from '../services/redirect';
 import { useLoadScript, DistanceMatrixService } from '@react-google-maps/api';
 import styles from '../styles/Home.module.css';
+
+import Spinner from '../components/Spinner';
 
 export default function Home() {
   // Configuración para el modal que pide permiso de ubicación
   const config: any = {
     enableHighAccuracy: true, 
-    maximumAge: 30000, 
+    maximumAge: 30000,
     timeout: 27000,
   };
 
@@ -24,7 +26,7 @@ export default function Home() {
   // Hook inicial que revisa si existe el servicio de ubicación en el navegador
   useEffect(() => {
     if ("geolocation" in navigator) {
-      setMsg("Porfavor de permisos de ubicación para redirigirlo a su sucursal...");
+      setMsg("Porfavor conceda permisos de ubicación para redirigirlo a su sucursal mas cercana...");
       navigator.geolocation.getCurrentPosition(onSucccess, onError, config);
     } else {
       setMsg("Su navegador no soporta la geolocalización, redirigiendolo a las posibles ubicaciones...");
@@ -44,8 +46,7 @@ export default function Home() {
   
   // Función de error al pedir ubicación
   const onError: any = (err: any) => {
-    console.log(err);
-    setMsg("Ocurrió un error al obtener su ubicación, mostrandole las sucursales disponibles");
+    setMsg("Ocurrió un error al obtener su ubicación, mostrandole las sucursales disponibles...");
   }
 
   return (
@@ -56,8 +57,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <div className={styles.loader}>Loading...</div>
-        <span>{msg}</span>
+        <section></section>
+        <section className={styles.center}>
+          <Spinner />
+        </section>
+        <section className={styles.justify}>
+          <div className={styles.textContainer}>
+            <span className={styles.loadingText}>{msg}</span>
+          </div>
+        </section>
       </main>
       {
         isLoaded && isPermission && (
@@ -72,7 +80,6 @@ export default function Home() {
               travelMode: "DRIVING",
             }}
             callback={(res) => {
-              console.log("RESPONSE", res);
               RedirectService.redirect(res.rows, res.originAddresses);
             }}
           />
@@ -86,9 +93,3 @@ interface Coords {
   lat: number;
   lng: number;
 }
-
-/* Key AIzaSyAo-HC19aPSYGm0mt826eoCliQkfNAueCo*/
-/*                    19.5485043190066, -96.93145158220881*/
-/* Plaza museo coords 19.548700194914215, -96.9315025473798*/
-/* Martires de chicago coords 19.508979105975133, -96.90683500320357 */
-/* José Ruiz coords           19.55817402214415,  -96.91246640498656 */

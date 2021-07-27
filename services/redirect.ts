@@ -14,8 +14,6 @@ const RedirectService = {
 			}
 		}
 
-		console.log(originAddresses[nearest]);
-		alert(`La sucursal mas cercana es ${originAddresses[nearest]}`);
 		location.replace(links[nearest]);
 	},
 };
