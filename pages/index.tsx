@@ -5,6 +5,7 @@ import { useLoadScript, DistanceMatrixService } from '@react-google-maps/api';
 import styles from '../styles/Home.module.css';
 
 import Spinner from '../components/Spinner';
+import TextBox from '../components/TextBox';
 
 export default function Home() {
   // Configuración para el modal que pide permiso de ubicación
@@ -62,9 +63,7 @@ export default function Home() {
           <Spinner />
         </section>
         <section className={styles.justify}>
-          <div className={styles.textContainer}>
-            <span className={styles.loadingText}>{msg}</span>
-          </div>
+          <TextBox msg={msg}/>
         </section>
       </main>
       {

@@ -1,8 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
 .container {
-  height: 100vh;
-  width: 100vw;
   background-color: #F36161;
 }
 
@@ -24,17 +20,4 @@
   height: 100%;
   display: grid;
   grid-template-rows: 1.1fr .8fr 1.1fr;
-}
-
-.textContainer {
-  display: flex;
-  justify-content: center;
-  width: 80vw;
-}
-
-.loadingText {
-  font-family: 'Roboto', sans-serif;
-  text-align: center;
-  font-size: 5.5vw;
-  color: #fff;
 }

@@ -1,9 +1,9 @@
 /* Spinner */
 .loader {
-  font-size: 10px;
-  text-indent: -9999em;
   width: 7em;
   height: 7em;
+  font-size: 10px;
+  text-indent: -9999em;
   border-radius: 50%;
   background: #fff;
   background: -moz-linear-gradient(left, #fff 10%, rgba(255, 255, 255, 0) 42%);
@@ -63,5 +63,12 @@
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .loader {
+    width: 10em;
+    height: 10em;
   }
 }
