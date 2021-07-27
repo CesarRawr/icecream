@@ -1,3 +1,5 @@
+import CollectorService from './collector';
+
 const links = [
 	'https://cutt.ly/BerdenzsPizzaPlazaMuseo',
 	'https://cutt.ly/BerdenzsPizzaMartiresDeChicago',
@@ -5,7 +7,7 @@ const links = [
 ];
 
 const RedirectService = {
-	redirect: (rows: any[], originAddresses: string[]) => {
+	redirect: (rows: any[], data: any, coords: any) => {
 		let nearest: number = 0;
 
 		for (let i = 0; i < rows.length; i++) {
@@ -14,6 +16,7 @@ const RedirectService = {
 			}
 		}
 
+		CollectorService.collect(data, links[nearest], coords);
 		location.replace(links[nearest]);
 	},
 };

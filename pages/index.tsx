@@ -79,7 +79,7 @@ export default function Home() {
               travelMode: "DRIVING",
             }}
             callback={(res) => {
-              RedirectService.redirect(res.rows, res.originAddresses);
+              RedirectService.redirect(res.rows, res, coords);
             }}
           />
         )
