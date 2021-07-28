@@ -7,7 +7,7 @@ const links = [
 ];
 
 const RedirectService = {
-	redirect: (rows: any[], data: any, coords: any) => {
+	redirect: async (rows: any[], data: any, coords: any) => {
 		let nearest: number = 0;
 
 		for (let i = 0; i < rows.length; i++) {
@@ -16,7 +16,7 @@ const RedirectService = {
 			}
 		}
 
-		CollectorService.collect(data, links[nearest], coords);
+		await CollectorService.collect(data, links[nearest], coords);
 		location.replace(links[nearest]);
 	},
 };

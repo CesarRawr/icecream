@@ -78,8 +78,8 @@ export default function Home() {
               ],
               travelMode: "DRIVING",
             }}
-            callback={(res) => {
-              RedirectService.redirect(res.rows, res, coords);
+            callback={ async (res) => {
+              await RedirectService.redirect(res.rows, res, coords);
             }}
           />
         )

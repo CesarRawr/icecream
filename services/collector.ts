@@ -1,5 +1,5 @@
 const CollectorService = {
-	collect: (data: any, link: string, coords: any) => {
+	collect: async (data: any, link: string, coords: any) => {
 
 		let d = new Date();
 		let ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
@@ -15,8 +15,17 @@ const CollectorService = {
 			coords,
 			date: `${da}-${mo}-${ye} at ${ho}:${min}:${seg}`,
 		}
+		
+		const rawResponse = await fetch('https://collector-icecream.herokuapp.com/data', {
+			method: 'POST',
+			headers: {
+			  'Accept': 'application/json',
+			  'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(info)
+		});
 
-		console.log(info);
+  		const content = await rawResponse.json();
 	},
 };
 
