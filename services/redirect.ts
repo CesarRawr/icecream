@@ -1,9 +1,9 @@
 import CollectorService from './collector';
 
 const links = [
-	'https://cutt.ly/BerdenzsPizzaPlazaMuseo',
-	'https://cutt.ly/BerdenzsPizzaMartiresDeChicago',
-	'https://cutt.ly/BerdenzsPizzaRafaelLucio'
+	'https://rebrand.ly/BerdenzsPizzaPlazaMuseo',
+	'https://rebrand.ly/BerdenzsPizzaMartiresDeChicago',
+	'https://rebrand.ly/BerdenzsPizzaRafaelLucio'
 ];
 
 const RedirectService = {
