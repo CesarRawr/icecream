@@ -1,7 +1,7 @@
 /* Spinner */
 .loader {
-  width: 7em;
-  height: 7em;
+  width: 6em;
+  height: 6em;
   font-size: 10px;
   text-indent: -9999em;
   border-radius: 50%;
@@ -66,9 +66,50 @@
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1023px) {
+/* smartphones, iPhone, portrait 480x320 phones */
+@media (min-width:320px) {
+  .loader {
+    width: 7.5em;
+    height: 7.5em;
+  }
+}
+
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ 
+@media (min-width:481px) {
+  .loader {
+    width: 6.3em;
+    height: 6.3em;
+  }
+}
+
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (min-width:641px) {
+  .loader {
+    width: 7em;
+    height: 7em;
+  }
+}
+
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+@media (min-width:961px) {
   .loader {
     width: 10em;
     height: 10em;
+  }
+}
+
+/* big landscape tablets, laptops, and desktops */
+@media (min-width:1025px) {
+  .loader {
+    width: 7.2em;
+    height: 7.2em;
+  }
+}
+
+/* hi-res laptops and desktops */
+@media (min-width:1281px) {
+  .loader {
+    width: 6.8em;
+    height: 6.8em;
   }
 }

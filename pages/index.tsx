@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import RedirectService from '../services/redirect';
 import { useLoadScript, DistanceMatrixService } from '@react-google-maps/api';
@@ -8,6 +9,9 @@ import Spinner from '../components/Spinner';
 import TextBox from '../components/TextBox';
 
 export default function Home() {
+
+  const router = useRouter();
+
   // Configuración para el modal que pide permiso de ubicación
   const config: any = {
     enableHighAccuracy: true, 
@@ -31,6 +35,9 @@ export default function Home() {
       navigator.geolocation.getCurrentPosition(onSucccess, onError, config);
     } else {
       setMsg("Su navegador no soporta la geolocalización, redirigiendolo a las posibles ubicaciones...");
+      setTimeout(() => {
+        router.replace('/fail');
+      }, 2500);
     }
   }, []);
 
@@ -48,6 +55,9 @@ export default function Home() {
   // Función de error al pedir ubicación
   const onError: any = (err: any) => {
     setMsg("Ocurrió un error al obtener su ubicación, mostrandole las sucursales disponibles...");
+    setTimeout(() => {
+      router.replace('/fail');
+    }, 2500);
   }
 
   return (

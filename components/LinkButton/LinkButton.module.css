@@ -1,0 +1,74 @@
+.button {
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90vw;
+  background-color: #fafafa;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, .2);
+}
+
+.button > span {
+  color: #828282;
+  font-family: 'Roboto', sans-serif;
+  font-size: 23px;
+  text-align: center;
+}
+
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ 
+@media (min-width:481px) {
+  .button {
+    width: 80vw;
+  }
+  .button > span {
+    font-size: 24px;
+  }
+}
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (min-width:640px) {
+  .button {
+    width: 50vw;
+    padding-bottom: .8rem;
+    margin-bottom: .8rem;
+  }
+  .button > span {
+    font-size: 20px;
+  }
+}
+
+@media (min-width:768px) {
+  .button {
+    width: 70vw;
+    padding-bottom: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+  .button > span {
+    font-size: 30px;
+  }
+}
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+@media (min-width:961px) {
+  .button {
+    width: 56vw;
+    padding-bottom: 1.1rem;
+    margin-bottom: 1.1rem;
+  }
+  .button > span {
+    font-size: 28px;
+  }
+}
+/* hi-res laptops and desktops */
+@media (min-width:1281px) {
+  .button {
+    width: 33vw;
+    padding-bottom: .9rem;
+    margin-bottom: .9rem;
+  }
+  .button > span {
+    font-size: 22px;
+  } 
+}
