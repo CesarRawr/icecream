@@ -16,7 +16,6 @@ const RedirectService = {
 			}
 		}
 
-		await CollectorService.collect(data, links[nearest], coords);
 		location.replace(links[nearest]);
 	},
 };
